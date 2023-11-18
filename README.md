@@ -30,25 +30,30 @@ All components are built from base components, making it simple to design your o
 
 ### Usage
 
-Clone the repository first.
-```bash
-git clone "https://github.com/SMR76/qooey.git"
-```
-
-Then include `Qooey.pri` in your project. <sub>[see example-1](example/example-1/example-1.pro#L11)</sub>
-```make
-include("path/to/Qooey.pri")
-```
-
-Add `qrc:/` to the engine import path. <sub>[see example-1](example/example-1/main.cpp#L17)</sub>
-```cpp
-engine.addImportPath("qrc:/");
-```
-
-And finally import the `Qooey` module. <sub>[see example-1](example/example-1/main.qml#L6)</sub>
-```qml
-import Qooey 1.0
-```
++ Clone the repository first.
+    ```bash
+    git clone "https://github.com/0smr/qooey.git"
+    ```
++ Then add `qooey` to your makefile.
+    * **QMake**: <sub>[example-1](example/example-1/example-1.pro#L7)</sub>
+        ```make
+        include("path/to/Qooey.pri")
+        ```
+    * **CMake**: <sub>[example-2](example/example-2/CMakeLists.txt#L30..L32)</sub>
+        ```cmake
+        add_subdirectory(path/to/Qooey/)
+        target_link_libraries(${target-name} qooey)
+        ```
++ Add `qrc:/` to the engine's import path.
+    <sub>[example-1](example/example-1/main.cpp#L12)</sub>
+    ```cpp
+    engine.addImportPath("qrc:/");
+    ```
++ Import the `Qooey` module.
+    <sub>[example-1](example/example-1/main.qml#L6)</sub>
+    ```qml
+    import Qooey 1.0
+    ```
 
 If you are confused, please refer to [example-1](example/example-1/) for a clearer understanding of what you should do.
 
@@ -77,6 +82,8 @@ If you are confused, please refer to [example-1](example/example-1/) for a clear
 
 ## To-Do
 - [ ] Fix compatibility issues with `Qt6.*`.
+- [ ] Add SPIR-V compatible shaders.
+- [ ] Recreate new UI.
 
 ## Issues
 
